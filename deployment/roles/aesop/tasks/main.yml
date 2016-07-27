@@ -1,0 +1,145 @@
+---
+
+- name: Creating Directories
+  #file: path={{ ansible_env.HOME }}/{{ item.src }} state=directory mode=0755
+  sudo: True
+  file: path=/srv/{{ item.src }} owner={{ ansible_ssh_user }} group={{ ansible_ssh_user }} state=directory mode=0755
+  with_items:
+    - { src: 'aesop_zopper' }
+    - { src: 'fk_open_replicator_zopper' }
+  tags:
+    - aesop_install
+    - deploy
+
+- name: Creating upstart dir
+  sudo: True
+  file: path=/var/log/upstart state=directory mode=0755
+  tags:
+    - aesop_install
+    - deploy
+
+- name: Changing ownership for aesop_zopper directory
+  file: path=/srv/aesop_zopper owner={{ ansible_ssh_user }} group={{ ansible_ssh_user }} state=directory recurse=yes
+  sudo: yes
+  tags:
+    - aesop_install
+    - deploy
+
+- name: Changing ownership for fk_open_replicator_zopper directory
+  file: path=/srv/fk_open_replicator_zopper owner={{ ansible_ssh_user }} group={{ ansible_ssh_user }} state=directory recurse=yes
+  sudo: yes
+  tags:
+    - aesop_install
+    - deploy
+
+- name: Cloning Open Replicator repo
+  git: repo=git@github.com:devzop/fk_open_replicator_zopper.git
+       dest="/srv/fk_open_replicator_zopper"
+       key_file=/home/{{ ansible_ssh_user }}/.ssh/authorized_keys
+       accept_hostkey=yes
+  tags:
+    - aesop_install
+    - deploy
+
+- name: Cloning aesop_zopper repo
+  git: repo=git@github.com:devzop/aesop_zopper.git
+       dest="/srv/aesop_zopper"
+       key_file=/home/{{ ansible_ssh_user }}/.ssh/authorized_keys
+       accept_hostkey=yes
+  tags:
+    - aesop_install
+    - deploy
+
+- name: Building the open replicator
+  command: chdir=/srv/fk_open_replicator_zopper mvn clean install
+  tags:
+    - aesop_install
+    - deploy
+
+- name: Building AESOP
+  command: chdir=/srv/aesop_zopper mvn clean install
+  tags:
+    - aesop_install
+    - deploy
+
+- name: Configuring AESOP Relay as a service
+  template: src=aesop_relay.conf.j2 dest=/etc/init/aesop_relay.conf
+  sudo: yes
+  delegate_to: "{{ groups['aesop_relay'][0] }}"
+  tags:
+    - aesop_relay
+    - aesop_install
+    - deploy
+    - skip
+
+- name: Force Restart aesop_relay service
+  service: name=aesop_relay state=restarted
+  sudo: yes
+  delegate_to: "{{groups['aesop_relay'][0] }}"
+  tags:
+    - aesop_relay
+    - aesop_install
+    - deploy
+    - skip
+
+- name: Configuring AESOP Client as a service
+  template: src=aesop_client.conf.j2 dest=/etc/init/aesop_client.conf
+  sudo: yes
+  delegate_to: "{{groups['aesop_client'][0]}}"
+  tags:
+    - aesop_client
+    - aesop_install
+    - deploy
+
+- name: Force Restart aesop_client service
+  service: name=aesop_client state=restarted
+  sudo: yes
+  delegate_to: "{{groups['aesop_client'][0]}}"
+  tags:
+    - aesop_client
+    - aesop_install
+    - deploy
+
+- name: Setting up crontab for hourly delivery of mails
+  cron: minute="59" job="/usr/bin/python /srv/aesop_zopper/utilities/custom_utils/fetch.py" user="{{ ansible_ssh_user }}"
+  delegate_to: "{{groups['aesop_client'][0]}}"
+  tags:
+    - aesop_client
+    - aesop_install
+    - deploy
+
+- name: Installing required system packages
+  sudo: yes
+  apt: name={{ item }} state=present
+  with_items:
+    - 'python-dev'
+    - 'python-pip'
+    - 'libmysqlclient-dev'
+  tags:
+    - aesop_install
+    - deploy
+
+
+#- name: Installing pip
+#  sudo: yes
+#  apt: name=python-pip state=present
+#  delegate_to: "{{groups['aesop_client'][0]}}"
+#  tags:
+#    - aesop_client
+#    - aesop_install
+#    - deploy
+
+
+- name: Installing pip packages
+  pip: name={{ item }}
+  sudo: yes
+  with_items:
+    - 'virtualenv'
+    - 'kazoo'
+    - 'tabulate'
+    - 'kafka-python'
+    - 'mysql'
+  tags:
+    - aesop_install
+    - deploy
+

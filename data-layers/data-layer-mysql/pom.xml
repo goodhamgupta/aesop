@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+      <parent>
+        <groupId>com.flipkart.aesop</groupId>
+        <artifactId>aesop</artifactId>
+        <version>1.2.1-SNAPSHOT</version>
+	<relativePath>../../pom.xml</relativePath>
+    </parent>
+  <artifactId>data-layer-mysql</artifactId>
+  <name>MySQL Data Layer</name>
+  <description>MySQL Data Layer</description>
+  
+  <dependencies>
+  		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<!-- aesop dependencies -->
+        <dependency>
+            <groupId>com.flipkart.aesop</groupId>
+            <artifactId>runtime-client-cluster</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.flipkart.aesop</groupId>
+            <artifactId>client-event-consumer</artifactId>
+        </dependency>
+  </dependencies>
+  
+     <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <!--ankit version>${maven-compiler-plugin.version}</version-->
+                <configuration>
+                    <!--ankit source>${jdk.version}</source-->
+                    <!--ankit target>${jdk.version}</target-->
+                	<source>1.6</source>
+                	<target>1.6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

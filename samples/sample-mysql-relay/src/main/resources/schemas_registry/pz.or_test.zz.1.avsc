@@ -1,0 +1,16 @@
+{
+  "name" : "zz",
+  "type" : "record",
+  "doc" : "Auto-generated Avro schema for zz. Generated at May 18, 2016 01:14:35 PM IST",
+  "namespace" : "or_test",
+  "meta" : "pk=new_idzz",
+  "fields" : [ {
+    "name" : "new_idzz",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_idzz;dbFieldPosition=0;dbFieldType=int"
+  }, {
+    "name" : "old_idzz",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_idzz;dbFieldPosition=1;dbFieldType=int"
+  } ]
+}

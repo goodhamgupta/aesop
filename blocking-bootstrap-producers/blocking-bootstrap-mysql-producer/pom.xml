@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.flipkart.aesop</groupId>
+        <artifactId>aesop</artifactId>
+        <version>1.2.1-SNAPSHOT</version>
+	<relativePath>../../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>blocking-bootstrap-mysql-producer</artifactId>
+    <name>Blocking Bootstrap MySQL Producer</name>
+    <description>Blocking Bootstrap MySQL Producer</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.flipkart.aesop</groupId>
+            <artifactId>runtime-blocking-bootstrap</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.flipkart</groupId>
+            <artifactId>open-replicator</artifactId>
+            <version>1.0.8</version>
+            <scope>compile</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+      <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <!--ankit version>${maven-compiler-plugin.version}</version-->
+                <configuration>
+                    <!--ankit source>${jdk.version}</source-->
+                    <!--ankit target>${jdk.version}</target-->
+                	<source>1.6</source>
+                	<target>1.6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

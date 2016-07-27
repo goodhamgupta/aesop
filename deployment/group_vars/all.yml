@@ -1,0 +1,68 @@
+---
+
+#-----------General Configs
+project_name: "AESOP Zopper"
+project_user: "{{ ansible_ssh_user }}"
+zk_vm_memory_mb: 256
+zk_port: 2181
+kafka_vm_memory_mb: 512
+kafka_port: 9092
+environment_variables:
+  STAGING:
+    DEPLOYMENT_TYPE: STAGING
+    #----Set the PRIVATE IPS of each server
+    #zk-node-1: 172.17.28.214
+    #zk-node-2: 172.17.28.215
+    #zk-node-3: 172.17.28.216
+    #kafka-node-1: 172.17.28.217
+    #kafka-node-2: 172.17.28.218
+    #kafka-node-3: 172.17.28.219
+    #zk-node-1: "52.6.176.54"
+    #zk-node-2: "52.86.163.102"
+    #zk-node-3: "52.72.159.48"
+    #kafka-node-1: "52.23.114.186"
+    #kafka-node-2: "52.200.25.108"
+    #kafka-node-3: "52.87.127.176"
+
+  DEPLOYMENT:
+    DEPLOYMENT_TYPE: DEPLOYMENT
+    #TODO: Ad the IPS for zookeeper and kafka here.
+
+
+#----------Zookeeper and Kafka Cluster Configs--------------
+#----------Change these ips depending on the environment----
+#----------Comment out the ips which are not required-------
+#-----STAGING------->
+#zk_cluster_info:
+#  45.79.204.106:
+#    zk_id: 1
+#  45.79.201.37:
+#    zk_id: 2
+#  45.79.214.40:
+#    zk_id: 3
+#kafka_cluster_info:
+#  45.79.217.57:
+#    broker_id: 1
+#  45.79.210.32:
+#    broker_id: 2
+#  45.79.195.8:
+#    broker_id: 3
+#<-----STAGING--------
+
+
+#------PROD---------->
+zk_cluster_info:
+  10.0.77.195:
+    zk_id: 1
+  10.0.57.145:
+    zk_id: 2
+  10.0.57.146:
+    zk_id: 3
+kafka_cluster_info:
+  10.0.77.195:
+    broker_id: 1
+  10.0.57.145:
+    broker_id: 2
+  10.0.57.146:
+    broker_id: 3
+#<-----PROD-----------

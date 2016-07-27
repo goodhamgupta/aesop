@@ -1,0 +1,32 @@
+{
+  "name" : "money",
+  "type" : "record",
+  "doc" : "Auto-generated Avro schema for money. Generated at May 18, 2016 01:14:35 PM IST",
+  "namespace" : "or_test",
+  "meta" : "pk=new_id",
+  "fields" : [ {
+    "name" : "new_id",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=new_id;dbFieldPosition=0;dbFieldType=bigint"
+  }, {
+    "name" : "new_amount",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_amount;dbFieldPosition=1;dbFieldType=decimal"
+  }, {
+    "name" : "new_deleted",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_deleted;dbFieldPosition=2;dbFieldType=varchar"
+  }, {
+    "name" : "old_id",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=old_id;dbFieldPosition=3;dbFieldType=bigint"
+  }, {
+    "name" : "old_amount",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_amount;dbFieldPosition=4;dbFieldType=decimal"
+  }, {
+    "name" : "old_deleted",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_deleted;dbFieldPosition=5;dbFieldType=varchar"
+  } ]
+}

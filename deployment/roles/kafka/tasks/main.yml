@@ -1,0 +1,138 @@
+
+#- name: create group
+ # sudo: True
+  #group:
+   # name: kafka
+    #state: present
+  #tags: kafka
+
+#- name: create user
+ # sudo: True
+  #user:
+   # name: kafka
+    #group: kafka
+  #tags: kafka
+
+- name: Creating kafka_cluster dir
+  sudo: True
+  file: path=/srv/kafka_cluster state=directory mode=0755
+  tags:
+    - kafka
+    - deploy
+
+- name: Creating upstart dir
+  sudo: True
+  file: path=/var/log/upstart state=directory mode=0755
+  tags:
+    - kafka
+    - deploy
+- name: Creating dataDir and install dir for kafka
+  sudo: True
+  file: path=/srv/kafka_cluster/{{ item.src }} state=directory mode=0755
+  with_items:
+      - { src: 'dataDir' }
+      - { src: 'install' }
+  tags:
+    - kafka
+    - deploy
+
+- name: Changing ownership for kafka_cluster directory
+  file: path=/srv/kafka_cluster owner={{ ansible_ssh_user }} group={{ ansible_ssh_user }} state=directory recurse=yes
+  sudo: yes
+  tags:
+    - kafka
+    - deploy
+
+- name: Setting internal variable
+  set_fact:
+    kafka_name: kafka_{{ kafka.scala_version }}-{{ kafka.version }}
+  tags:
+    - kafka
+    - deploy
+
+- name: Setting internal variable
+  set_fact:
+    kafka_dir: "{{ kafka.install_dir }}/{{ kafka_name }}"
+  tags:
+    - kafka
+    - deploy
+
+- name: check if tar has been downloaded
+  command: test -f /tmp/{{ kafka_name }}.tgz
+  register: kafka_tar_downloaded
+  failed_when: kafka_tar_downloaded.rc not in [0, 1]
+  changed_when: False
+  tags:
+    - kafka
+    - deploy
+
+- name: Ensure Kafka tar is downloaded
+  get_url:
+    url: "{{ kafka.mirror }}/kafka/{{ kafka.version }}/{{ kafka_name }}.tgz"
+    dest: /tmp
+  tags:
+    - kafka
+    - deploy
+
+  when: kafka_tar_downloaded.rc == 1
+
+- name: Ensure tar is extracted
+  command: tar xzf /tmp/{{ kafka_name }}.tgz chdir="{{ kafka.install_dir }}"
+  tags:
+    - kafka
+    - deploy
+
+# Config and start Kafka
+- name: Ensures data dir {{ kafka.data_dir }} exists
+  file:
+    path: "{{ kafka.data_dir }}"
+    state: directory
+    #owner: kafka
+    #group: kafka
+  tags:
+    - kafka
+    - deploy
+
+- name: Copy updated config
+  template:
+    src: kafka-properties.j2
+    dest: "{{ kafka_dir }}/config/server.properties"
+    force: yes
+  #notify: restart kafka
+  tags:
+    - kafka
+    - deploy
+
+- name: Editing kafka Heap config
+  #lineinfile: dest="{{ kafka_dir }}/bin/kafka-server-start.sh" regexp='^export KAFKA_HEAP_OPTS="-Xmx1G -Xms1G"$' state=absent
+  template:
+    src: kafka-server-start-sh.j2
+    dest: "{{ kafka_dir }}/bin/kafka-server-start.sh"
+    force: yes
+  tags:
+    - kafka
+    - deploy
+
+
+- name: Checking if zookeeper is running as a service
+  wait_for: host={{ item }} port=2181 timeout=10
+  with_items:
+    - "{{ groups['zk'] }}"
+  tags:
+    - kafka
+    - deploy
+
+
+- name: Configuring kafka as a service
+  template: src=kafka.conf.j2 dest=/etc/init/kafka.conf
+  sudo: yes
+  tags:
+    - kafka
+    - deploy
+
+- name: Force Restart kafka service
+  service: name=kafka state=restarted
+  sudo: yes
+  tags:
+    - kafka
+    - deploy

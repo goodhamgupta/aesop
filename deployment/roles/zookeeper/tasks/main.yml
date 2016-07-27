@@ -1,0 +1,148 @@
+- name: Creating zookeeper_cluster dir
+  file: path=/srv/zookeeper_cluster state=directory mode=0755
+  tags:
+    - zookeeper
+    - deploy
+
+- name: Creating upstart dir
+  sudo: True
+  file: path=/var/log/upstart state=directory mode=0755
+  tags:
+    - zookeeper
+    - deploy
+
+- name: Creating dataDir and install dir for zookeeper
+  file: path=/srv/zookeeper_cluster/{{ item.src }} state=directory mode=0755
+  with_items:
+      - { src: 'dataDir' }
+      - { src: 'install' }
+  tags:
+    - zookeeper
+    - deploy
+
+- name: Changing ownership for zookeeper_cluster directory
+  file: path=/srv/zookeeper_cluster owner={{ ansible_ssh_user }} group={{ ansible_ssh_user }} state=directory recurse=yes
+  sudo: yes
+  tags:
+    - zookeeper
+    - deploy
+
+
+#- name: systemd start script
+#  template:
+#    src: zookeeper-systemd.j2
+#    dest: /home/{{ ansible_ssh_user}}/
+#  #notify: start zookeeper
+#  tags: zookeeper
+
+# Otherwise, Zookeeper ends up not working when using ailases
+- name: remove own host from 127.0.0.1 aliases
+  lineinfile: >
+    dest=/etc/hosts
+    state=present
+    regexp='^(127\.0\.0\.1.*){{ inventory_hostname }}(.*)$'
+    line='\1\2'
+    backup=yes
+    backrefs=yes
+  tags:
+    - zookeeper
+    - deploy
+  #notify: restart zookeeper
+
+- name: create group
+  group:
+    name: zookeeper
+    state: present
+  tags:
+    - zookeeper
+    - deploy
+
+- name: create user
+  user:
+    name: zookeeper
+    group: zookeeper
+  tags:
+    - zookeeper
+    - deploy
+
+- name: Setting internal variable
+  set_fact:
+    zk_name: zookeeper-{{ zk.version }}
+  tags:
+    - zookeeper
+    - deploy
+
+- name: Zookeeper | Setting internal variable
+  set_fact:
+    zk_dir: "{{ zk.install_dir }}/{{ zk_name }}"
+  tags:
+    - zookeeper
+    - deploy
+
+- name: check if tar has been downloaded
+  command: test -f /tmp/{{ zk_name }}.tar.gz
+  register: zookeeper_tar_downloaded
+  failed_when: zookeeper_tar_downloaded.rc not in [0, 1]
+  changed_when: False
+  tags:
+    - zookeeper
+    - deploy
+
+- name: Ensure Zookeeper tar is downloaded
+  get_url:
+    url: "{{ zk.mirror }}/zookeeper/{{ zk_name }}/{{ zk_name }}.tar.gz"
+    dest: /tmp
+  tags:
+    - zookeeper
+    - deploy
+    - t1
+  when: zookeeper_tar_downloaded.rc == 1
+
+- name: Ensure tar is extracted
+  command: tar xzf /tmp/{{ zk_name }}.tar.gz chdir="{{ zk.install_dir }}"
+  tags:
+    - zookeeper
+    - deploy
+
+# Config and start Zookeeper
+- name: Ensure zoo.conf is present
+  template:
+    src: zoo.cfg
+    dest: "{{ zk_dir }}/conf/zoo.cfg"
+  #notify: restart zookeeper
+  tags:
+    - zookeeper
+    - deploy
+
+- name: Ensures data dir {{ zk.data_dir }} exists
+  file:
+    path: "{{ zk.data_dir }}"
+    state: directory
+    owner: zookeeper
+    group: zookeeper
+  tags:
+    - zookeeper
+    - deploy
+
+- debug: msg=" Data dir is {{ zk.data_dir }}. {{ zk_cluster_info }}"
+  tags:
+    - zookeeper
+    - deploy
+
+- name: Ensure correct myid is set.
+  template:
+    src: myid
+    dest: "{{ zk.data_dir }}/myid"
+  #notify: restart zookeeper
+  tags:
+    - zookeeper
+    - deploy
+    - skip
+
+- name: Starting zookeeper
+  command: chdir={{ zk_dir }} bash bin/zkServer.sh start conf/zoo.cfg
+  tags:
+    - zookeeper
+    - deploy
+
+

@@ -1,0 +1,48 @@
+{
+  "name" : "person",
+  "type" : "record",
+  "doc" : "Auto-generated Avro schema for person. Generated at May 18, 2016 01:14:35 PM IST",
+  "namespace" : "or_test",
+  "meta" : "pk=new_id",
+  "fields" : [ {
+    "name" : "new_id",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=new_id;dbFieldPosition=0;dbFieldType=bigint"
+  }, {
+    "name" : "new_first_name",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_first_name;dbFieldPosition=1;dbFieldType=varchar"
+  }, {
+    "name" : "new_last_name",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_last_name;dbFieldPosition=2;dbFieldType=varchar"
+  }, {
+    "name" : "new_birth_date",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=new_birth_date;dbFieldPosition=3;dbFieldType=date"
+  }, {
+    "name" : "new_deleted",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_deleted;dbFieldPosition=4;dbFieldType=varchar"
+  }, {
+    "name" : "old_id",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=old_id;dbFieldPosition=5;dbFieldType=bigint"
+  }, {
+    "name" : "old_first_name",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_first_name;dbFieldPosition=6;dbFieldType=varchar"
+  }, {
+    "name" : "old_last_name",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_last_name;dbFieldPosition=7;dbFieldType=varchar"
+  }, {
+    "name" : "old_birth_date",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=old_birth_date;dbFieldPosition=8;dbFieldType=date"
+  }, {
+    "name" : "old_deleted",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_deleted;dbFieldPosition=9;dbFieldType=varchar"
+  } ]
+}

@@ -1,0 +1,384 @@
+{
+  "name" : "orders_orderitem",
+  "type" : "record",
+  "doc" : "Auto-generated Avro schema for orders_orderitem. Generated at May 26, 2016 09:52:55 AM IST",
+  "namespace" : "accounts",
+  "meta" : "pk=new_id",
+  "fields" : [ {
+    "name" : "new_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_id;dbFieldPosition=0;dbFieldType=int"
+  }, {
+    "name" : "new_order_summary_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_order_summary_id;dbFieldPosition=1;dbFieldType=int"
+  }, {
+    "name" : "new_created_at",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=new_created_at;dbFieldPosition=2;dbFieldType=datetime"
+  }, {
+    "name" : "new_modified_at",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=new_modified_at;dbFieldPosition=3;dbFieldType=datetime"
+  }, {
+    "name" : "new_product_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_product_id;dbFieldPosition=4;dbFieldType=int"
+  }, {
+    "name" : "new_product_title",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_product_title;dbFieldPosition=5;dbFieldType=varchar"
+  }, {
+    "name" : "new_store_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_store_id;dbFieldPosition=6;dbFieldType=int"
+  }, {
+    "name" : "new_store_name",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_store_name;dbFieldPosition=7;dbFieldType=varchar"
+  }, {
+    "name" : "new_store_locality",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_store_locality;dbFieldPosition=8;dbFieldType=varchar"
+  }, {
+    "name" : "new_sku",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_sku;dbFieldPosition=9;dbFieldType=varchar"
+  }, {
+    "name" : "new_is_coupon_applied",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_is_coupon_applied;dbFieldPosition=10;dbFieldType=tinyint"
+  }, {
+    "name" : "new_quantity",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_quantity;dbFieldPosition=11;dbFieldType=int"
+  }, {
+    "name" : "new_unit_price",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_unit_price;dbFieldPosition=12;dbFieldType=decimal"
+  }, {
+    "name" : "new_order_item_total",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_order_item_total;dbFieldPosition=13;dbFieldType=decimal"
+  }, {
+    "name" : "new_order_item_gross",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_order_item_gross;dbFieldPosition=14;dbFieldType=decimal"
+  }, {
+    "name" : "new_order_item_discount",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_order_item_discount;dbFieldPosition=15;dbFieldType=decimal"
+  }, {
+    "name" : "new_is_cancelled_sales",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_is_cancelled_sales;dbFieldPosition=16;dbFieldType=tinyint"
+  }, {
+    "name" : "new_is_cancelled_user",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_is_cancelled_user;dbFieldPosition=17;dbFieldType=tinyint"
+  }, {
+    "name" : "new_order_status",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_order_status;dbFieldPosition=18;dbFieldType=varchar"
+  }, {
+    "name" : "new_order_status_modified_at",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=new_order_status_modified_at;dbFieldPosition=19;dbFieldType=datetime"
+  }, {
+    "name" : "new_unique_item_id",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_unique_item_id;dbFieldPosition=20;dbFieldType=varchar"
+  }, {
+    "name" : "new_shipment_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_shipment_id;dbFieldPosition=21;dbFieldType=int"
+  }, {
+    "name" : "new_is_retailer_cancelled",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_is_retailer_cancelled;dbFieldPosition=22;dbFieldType=tinyint"
+  }, {
+    "name" : "new_retailer_status",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_retailer_status;dbFieldPosition=23;dbFieldType=varchar"
+  }, {
+    "name" : "new_retailer_status_last_updated",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=new_retailer_status_last_updated;dbFieldPosition=24;dbFieldType=datetime"
+  }, {
+    "name" : "new_fulfilled_item_gross",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_fulfilled_item_gross;dbFieldPosition=25;dbFieldType=decimal"
+  }, {
+    "name" : "new_fulfilled_store_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_fulfilled_store_id;dbFieldPosition=26;dbFieldType=int"
+  }, {
+    "name" : "new_cancelled_at",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=new_cancelled_at;dbFieldPosition=27;dbFieldType=datetime"
+  }, {
+    "name" : "new_exchange_code",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_exchange_code;dbFieldPosition=28;dbFieldType=varchar"
+  }, {
+    "name" : "new_exchange_discount",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_exchange_discount;dbFieldPosition=29;dbFieldType=decimal"
+  }, {
+    "name" : "new_is_exchange_applied",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_is_exchange_applied;dbFieldPosition=30;dbFieldType=tinyint"
+  }, {
+    "name" : "new_exchange_rule",
+    "type" : [ "bytes", "null" ],
+    "meta" : "dbFieldName=new_exchange_rule;dbFieldPosition=31;dbFieldType=longtext"
+  }, {
+    "name" : "new_comment",
+    "type" : [ "bytes", "null" ],
+    "meta" : "dbFieldName=new_comment;dbFieldPosition=32;dbFieldType=longtext"
+  }, {
+    "name" : "new_brand",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_brand;dbFieldPosition=33;dbFieldType=varchar"
+  }, {
+    "name" : "new_product_category_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_product_category_id;dbFieldPosition=34;dbFieldType=int"
+  }, {
+    "name" : "new_bundled_warranty_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_bundled_warranty_id;dbFieldPosition=35;dbFieldType=int"
+  }, {
+    "name" : "new_item_meta_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_item_meta_id;dbFieldPosition=36;dbFieldType=int"
+  }, {
+    "name" : "new_cashback_amount",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_cashback_amount;dbFieldPosition=37;dbFieldType=decimal"
+  }, {
+    "name" : "new_is_cashbacked",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_is_cashbacked;dbFieldPosition=38;dbFieldType=tinyint"
+  }, {
+    "name" : "new_first_time_acceptance_at",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=new_first_time_acceptance_at;dbFieldPosition=39;dbFieldType=datetime"
+  }, {
+    "name" : "new_cashback_delay",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_cashback_delay;dbFieldPosition=40;dbFieldType=int"
+  }, {
+    "name" : "new_chain_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_chain_id;dbFieldPosition=41;dbFieldType=int"
+  }, {
+    "name" : "new_cancellation_reason",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_cancellation_reason;dbFieldPosition=42;dbFieldType=int"
+  }, {
+    "name" : "new_offer_description",
+    "type" : [ "bytes", "null" ],
+    "meta" : "dbFieldName=new_offer_description;dbFieldPosition=43;dbFieldType=longtext"
+  }, {
+    "name" : "new_shipping_charges",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_shipping_charges;dbFieldPosition=44;dbFieldType=decimal"
+  }, {
+    "name" : "new_is_bundled",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_is_bundled;dbFieldPosition=45;dbFieldType=tinyint"
+  }, {
+    "name" : "new_ref_item_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_ref_item_id;dbFieldPosition=46;dbFieldType=int"
+  }, {
+    "name" : "old_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_id;dbFieldPosition=47;dbFieldType=int"
+  }, {
+    "name" : "old_order_summary_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_order_summary_id;dbFieldPosition=48;dbFieldType=int"
+  }, {
+    "name" : "old_created_at",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=old_created_at;dbFieldPosition=49;dbFieldType=datetime"
+  }, {
+    "name" : "old_modified_at",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=old_modified_at;dbFieldPosition=50;dbFieldType=datetime"
+  }, {
+    "name" : "old_product_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_product_id;dbFieldPosition=51;dbFieldType=int"
+  }, {
+    "name" : "old_product_title",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_product_title;dbFieldPosition=52;dbFieldType=varchar"
+  }, {
+    "name" : "old_store_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_store_id;dbFieldPosition=53;dbFieldType=int"
+  }, {
+    "name" : "old_store_name",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_store_name;dbFieldPosition=54;dbFieldType=varchar"
+  }, {
+    "name" : "old_store_locality",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_store_locality;dbFieldPosition=55;dbFieldType=varchar"
+  }, {
+    "name" : "old_sku",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_sku;dbFieldPosition=56;dbFieldType=varchar"
+  }, {
+    "name" : "old_is_coupon_applied",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_is_coupon_applied;dbFieldPosition=57;dbFieldType=tinyint"
+  }, {
+    "name" : "old_quantity",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_quantity;dbFieldPosition=58;dbFieldType=int"
+  }, {
+    "name" : "old_unit_price",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_unit_price;dbFieldPosition=59;dbFieldType=decimal"
+  }, {
+    "name" : "old_order_item_total",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_order_item_total;dbFieldPosition=60;dbFieldType=decimal"
+  }, {
+    "name" : "old_order_item_gross",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_order_item_gross;dbFieldPosition=61;dbFieldType=decimal"
+  }, {
+    "name" : "old_order_item_discount",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_order_item_discount;dbFieldPosition=62;dbFieldType=decimal"
+  }, {
+    "name" : "old_is_cancelled_sales",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_is_cancelled_sales;dbFieldPosition=63;dbFieldType=tinyint"
+  }, {
+    "name" : "old_is_cancelled_user",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_is_cancelled_user;dbFieldPosition=64;dbFieldType=tinyint"
+  }, {
+    "name" : "old_order_status",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_order_status;dbFieldPosition=65;dbFieldType=varchar"
+  }, {
+    "name" : "old_order_status_modified_at",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=old_order_status_modified_at;dbFieldPosition=66;dbFieldType=datetime"
+  }, {
+    "name" : "old_unique_item_id",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_unique_item_id;dbFieldPosition=67;dbFieldType=varchar"
+  }, {
+    "name" : "old_shipment_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_shipment_id;dbFieldPosition=68;dbFieldType=int"
+  }, {
+    "name" : "old_is_retailer_cancelled",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_is_retailer_cancelled;dbFieldPosition=69;dbFieldType=tinyint"
+  }, {
+    "name" : "old_retailer_status",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_retailer_status;dbFieldPosition=70;dbFieldType=varchar"
+  }, {
+    "name" : "old_retailer_status_last_updated",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=old_retailer_status_last_updated;dbFieldPosition=71;dbFieldType=datetime"
+  }, {
+    "name" : "old_fulfilled_item_gross",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_fulfilled_item_gross;dbFieldPosition=72;dbFieldType=decimal"
+  }, {
+    "name" : "old_fulfilled_store_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_fulfilled_store_id;dbFieldPosition=73;dbFieldType=int"
+  }, {
+    "name" : "old_cancelled_at",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=old_cancelled_at;dbFieldPosition=74;dbFieldType=datetime"
+  }, {
+    "name" : "old_exchange_code",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_exchange_code;dbFieldPosition=75;dbFieldType=varchar"
+  }, {
+    "name" : "old_exchange_discount",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_exchange_discount;dbFieldPosition=76;dbFieldType=decimal"
+  }, {
+    "name" : "old_is_exchange_applied",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_is_exchange_applied;dbFieldPosition=77;dbFieldType=tinyint"
+  }, {
+    "name" : "old_exchange_rule",
+    "type" : [ "bytes", "null" ],
+    "meta" : "dbFieldName=old_exchange_rule;dbFieldPosition=78;dbFieldType=longtext"
+  }, {
+    "name" : "old_comment",
+    "type" : [ "bytes", "null" ],
+    "meta" : "dbFieldName=old_comment;dbFieldPosition=79;dbFieldType=longtext"
+  }, {
+    "name" : "old_brand",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_brand;dbFieldPosition=80;dbFieldType=varchar"
+  }, {
+    "name" : "old_product_category_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_product_category_id;dbFieldPosition=81;dbFieldType=int"
+  }, {
+    "name" : "old_bundled_warranty_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_bundled_warranty_id;dbFieldPosition=82;dbFieldType=int"
+  }, {
+    "name" : "old_item_meta_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_item_meta_id;dbFieldPosition=83;dbFieldType=int"
+  }, {
+    "name" : "old_cashback_amount",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_cashback_amount;dbFieldPosition=84;dbFieldType=decimal"
+  }, {
+    "name" : "old_is_cashbacked",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_is_cashbacked;dbFieldPosition=85;dbFieldType=tinyint"
+  }, {
+    "name" : "old_first_time_acceptance_at",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=old_first_time_acceptance_at;dbFieldPosition=86;dbFieldType=datetime"
+  }, {
+    "name" : "old_cashback_delay",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_cashback_delay;dbFieldPosition=87;dbFieldType=int"
+  }, {
+    "name" : "old_chain_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_chain_id;dbFieldPosition=88;dbFieldType=int"
+  }, {
+    "name" : "old_cancellation_reason",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_cancellation_reason;dbFieldPosition=89;dbFieldType=int"
+  }, {
+    "name" : "old_offer_description",
+    "type" : [ "bytes", "null" ],
+    "meta" : "dbFieldName=old_offer_description;dbFieldPosition=90;dbFieldType=longtext"
+  }, {
+    "name" : "old_shipping_charges",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_shipping_charges;dbFieldPosition=91;dbFieldType=decimal"
+  }, {
+    "name" : "old_is_bundled",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_is_bundled;dbFieldPosition=92;dbFieldType=tinyint"
+  }, {
+    "name" : "old_ref_item_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_ref_item_id;dbFieldPosition=93;dbFieldType=int"
+  } ]
+}

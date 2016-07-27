@@ -1,0 +1,10 @@
+- hosts: aesop
+  sudo: True
+  roles:
+    - {role: java, sudo: True}
+    - {role: mandatory, sudo: True}
+
+- hosts: aesop_servers
+  sudo: True
+  roles:
+    - {role: aesop, sudo: False}

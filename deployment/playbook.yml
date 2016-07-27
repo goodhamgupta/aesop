@@ -1,0 +1,21 @@
+- hosts: aesop
+  sudo: True
+  roles:
+    - {role: java, sudo: True}
+    - {role: mandatory, sudo: True}
+
+- hosts: zk
+  sudo: True
+  roles:
+    - zookeeper
+
+- hosts: kafka
+  roles:
+    - kafka
+  vars:
+    zk_client_port: 2181
+    zk_hosts: "{{ groups['zk_private_ips'] }}"
+
+- hosts: aesop_servers
+  roles:
+    - {role: aesop, sudo: False}

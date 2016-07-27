@@ -1,0 +1,17 @@
+- name: Update apt cache
+  apt: update_cache=yes
+  tags:
+    - mandatory
+    - deploy
+
+- name: install git
+  apt: name=git state=present
+  tags:
+    - mandatory
+    - deploy
+
+- name: install maven
+  apt: name=maven state=present
+  tags:
+    - mandatory
+    - deploy

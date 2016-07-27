@@ -1,0 +1,208 @@
+{
+  "name" : "store_product_price",
+  "type" : "record",
+  "doc" : "Auto-generated Avro schema for store_product_price. Generated at May 24, 2016 02:09:19 PM IST",
+  "namespace" : "merchant",
+  "meta" : "pk=new_id",
+  "fields" : [ {
+    "name" : "new_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_id;dbFieldPosition=0;dbFieldType=int"
+  }, {
+    "name" : "new_product_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_product_id;dbFieldPosition=1;dbFieldType=int"
+  }, {
+    "name" : "new_product_title",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_product_title;dbFieldPosition=2;dbFieldType=varchar"
+  }, {
+    "name" : "new_base_price",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_base_price;dbFieldPosition=3;dbFieldType=decimal"
+  }, {
+    "name" : "new_msp_price",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_msp_price;dbFieldPosition=4;dbFieldType=decimal"
+  }, {
+    "name" : "new_sp_price",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_sp_price;dbFieldPosition=5;dbFieldType=decimal"
+  }, {
+    "name" : "new_created_at",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=new_created_at;dbFieldPosition=6;dbFieldType=datetime"
+  }, {
+    "name" : "new_modified_at",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=new_modified_at;dbFieldPosition=7;dbFieldType=datetime"
+  }, {
+    "name" : "new_is_active",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_is_active;dbFieldPosition=8;dbFieldType=tinyint"
+  }, {
+    "name" : "new_price_exp_time",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=new_price_exp_time;dbFieldPosition=9;dbFieldType=datetime"
+  }, {
+    "name" : "new_is_elastic_sync",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_is_elastic_sync;dbFieldPosition=10;dbFieldType=tinyint"
+  }, {
+    "name" : "new_elastic_sync_time",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=new_elastic_sync_time;dbFieldPosition=11;dbFieldType=datetime"
+  }, {
+    "name" : "new_is_bugatti_sync",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_is_bugatti_sync;dbFieldPosition=12;dbFieldType=tinyint"
+  }, {
+    "name" : "new_bugatti_sync_time",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=new_bugatti_sync_time;dbFieldPosition=13;dbFieldType=datetime"
+  }, {
+    "name" : "new_score",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_score;dbFieldPosition=14;dbFieldType=decimal"
+  }, {
+    "name" : "new_category_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_category_id;dbFieldPosition=15;dbFieldType=int"
+  }, {
+    "name" : "new_log_price_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_log_price_id;dbFieldPosition=16;dbFieldType=int"
+  }, {
+    "name" : "new_store_id",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_store_id;dbFieldPosition=17;dbFieldType=varchar"
+  }, {
+    "name" : "new_zsp",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_zsp;dbFieldPosition=18;dbFieldType=decimal"
+  }, {
+    "name" : "new_seller_rating",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_seller_rating;dbFieldPosition=19;dbFieldType=decimal"
+  }, {
+    "name" : "new_offer_description",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_offer_description;dbFieldPosition=20;dbFieldType=varchar"
+  }, {
+    "name" : "new_quantity",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_quantity;dbFieldPosition=21;dbFieldType=int"
+  }, {
+    "name" : "new_store_type",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_store_type;dbFieldPosition=22;dbFieldType=int"
+  }, {
+    "name" : "new_threshold",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_threshold;dbFieldPosition=23;dbFieldType=int"
+  }, {
+    "name" : "new_offer_value",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_offer_value;dbFieldPosition=24;dbFieldType=decimal"
+  }, {
+    "name" : "old_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_id;dbFieldPosition=25;dbFieldType=int"
+  }, {
+    "name" : "old_product_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_product_id;dbFieldPosition=26;dbFieldType=int"
+  }, {
+    "name" : "old_product_title",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_product_title;dbFieldPosition=27;dbFieldType=varchar"
+  }, {
+    "name" : "old_base_price",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_base_price;dbFieldPosition=28;dbFieldType=decimal"
+  }, {
+    "name" : "old_msp_price",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_msp_price;dbFieldPosition=29;dbFieldType=decimal"
+  }, {
+    "name" : "old_sp_price",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_sp_price;dbFieldPosition=30;dbFieldType=decimal"
+  }, {
+    "name" : "old_created_at",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=old_created_at;dbFieldPosition=31;dbFieldType=datetime"
+  }, {
+    "name" : "old_modified_at",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=old_modified_at;dbFieldPosition=32;dbFieldType=datetime"
+  }, {
+    "name" : "old_is_active",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_is_active;dbFieldPosition=33;dbFieldType=tinyint"
+  }, {
+    "name" : "old_price_exp_time",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=old_price_exp_time;dbFieldPosition=34;dbFieldType=datetime"
+  }, {
+    "name" : "old_is_elastic_sync",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_is_elastic_sync;dbFieldPosition=35;dbFieldType=tinyint"
+  }, {
+    "name" : "old_elastic_sync_time",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=old_elastic_sync_time;dbFieldPosition=36;dbFieldType=datetime"
+  }, {
+    "name" : "old_is_bugatti_sync",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_is_bugatti_sync;dbFieldPosition=37;dbFieldType=tinyint"
+  }, {
+    "name" : "old_bugatti_sync_time",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=old_bugatti_sync_time;dbFieldPosition=38;dbFieldType=datetime"
+  }, {
+    "name" : "old_score",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_score;dbFieldPosition=39;dbFieldType=decimal"
+  }, {
+    "name" : "old_category_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_category_id;dbFieldPosition=40;dbFieldType=int"
+  }, {
+    "name" : "old_log_price_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_log_price_id;dbFieldPosition=41;dbFieldType=int"
+  }, {
+    "name" : "old_store_id",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_store_id;dbFieldPosition=42;dbFieldType=varchar"
+  }, {
+    "name" : "old_zsp",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_zsp;dbFieldPosition=43;dbFieldType=decimal"
+  }, {
+    "name" : "old_seller_rating",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_seller_rating;dbFieldPosition=44;dbFieldType=decimal"
+  }, {
+    "name" : "old_offer_description",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_offer_description;dbFieldPosition=45;dbFieldType=varchar"
+  }, {
+    "name" : "old_quantity",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_quantity;dbFieldPosition=46;dbFieldType=int"
+  }, {
+    "name" : "old_store_type",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_store_type;dbFieldPosition=47;dbFieldType=int"
+  }, {
+    "name" : "old_threshold",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_threshold;dbFieldPosition=48;dbFieldType=int"
+  }, {
+    "name" : "old_offer_value",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_offer_value;dbFieldPosition=49;dbFieldType=decimal"
+  } ]
+}

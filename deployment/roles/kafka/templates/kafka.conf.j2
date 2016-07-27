@@ -1,0 +1,45 @@
+description "Kafka"
+author      "Harish"
+
+console log
+
+start on filesystem or runlevel [2345]
+stop on runlevel [06]
+
+respawn
+respawn limit 2 5
+
+script
+
+    echo "starting kafka"
+    echo $$ >> /var/log/kafka_upstart.log
+    chdir /srv/kafka_cluster/install/kafka*
+#    exec sudo bash bin/kafka-server-stop.sh
+    exec sudo bash bin/kafka-server-start.sh config/server.properties
+
+end script
+
+pre-start script
+    echo "[`date`] kafka Starting" >> /var/log/kafka_upstart.log
+end script
+
+pre-stop script
+    echo "[`date`] kafka Stopping" >> /var/log/kafka_upstart.log
+end script
+
+post-stop script
+    echo "[`date`] kafka Stopped. Doing user defined cleanup of trooper processes." >> /var/log/kafka_upstart.log
+    #exec ps -ef| grep org.trpr.platform >> /var/log/kafka_upstart.log
+    #pkill -f isla
+    pid=`ps -ef | grep "kafka_cluster" | grep -v grep | awk ' {print $2}'`
+    echo $pid >> /var/log/kafka_upstart.log
+    if ! [ -z "$pid" ]
+    then
+        echo "Process has ended." >> /var/log/kafka_upstart.log
+        `kill -9 $pid`
+        echo "$pid"  >> /var/log/kafka_upstart.log
+    else
+        echo "No kafka process is running" >> /var/log/kafka_upstart.log
+    fi
+end script
+

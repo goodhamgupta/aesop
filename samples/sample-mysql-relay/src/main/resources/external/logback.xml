@@ -1,0 +1,43 @@
+<configuration>
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    	<encoder>
+      		<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %class{36}.%M %L %logger{36} - %msg%n</pattern>
+    	</encoder>
+  	</appender>
+  	
+  	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+    	<file>/srv/aesop_logs/sample-mysql-relay.log</file>
+    	<append>true</append>
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %class{36}.%M %L  %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  	<appender name="rolling_file"
+                class="ch.qos.logback.core.rolling.RollingFileAppender">
+                <file>/srv/aesop_logs/sample-mysql-relay.log</file>
+                <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                        <fileNamePattern>/srv/aesop_logs/sample-mysql-relay.%d{yyyy-MM-dd-HH}.log
+                        </fileNamePattern>
+                        <maxHistory>150</maxHistory>
+                </rollingPolicy>
+
+                <encoder>
+                        <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M %L - %msg%n </pattern>
+                </encoder>
+        </appender>
+  	
+   	<!-- Set some of the 3rd party libraries to log only at INFO or higher levels -->
+	<!--logger name="org.springframework" level="warn"/-->
+	<logger name="org.springframework" level="info"/>
+
+
+	<root level="info">
+	<!--root level="warn">
+    	<appender-ref ref="STDOUT" />
+    	 <appender-ref ref="FILE" /-->
+	<appender-ref ref="rolling_file" />
+ 	</root>
+   
+</configuration>

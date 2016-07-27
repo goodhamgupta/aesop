@@ -1,0 +1,368 @@
+{
+  "name" : "orders_ordersummary",
+  "type" : "record",
+  "doc" : "Auto-generated Avro schema for orders_ordersummary. Generated at May 26, 2016 09:52:55 AM IST",
+  "namespace" : "accounts",
+  "meta" : "pk=new_id",
+  "fields" : [ {
+    "name" : "new_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_id;dbFieldPosition=0;dbFieldType=int"
+  }, {
+    "name" : "new_created_at",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=new_created_at;dbFieldPosition=1;dbFieldType=datetime"
+  }, {
+    "name" : "new_modified_at",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=new_modified_at;dbFieldPosition=2;dbFieldType=datetime"
+  }, {
+    "name" : "new_is_ack",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_is_ack;dbFieldPosition=3;dbFieldType=tinyint"
+  }, {
+    "name" : "new_order_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_order_id;dbFieldPosition=4;dbFieldType=int"
+  }, {
+    "name" : "new_item_count",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_item_count;dbFieldPosition=5;dbFieldType=int"
+  }, {
+    "name" : "new_item_quantity",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_item_quantity;dbFieldPosition=6;dbFieldType=int"
+  }, {
+    "name" : "new_order_total",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_order_total;dbFieldPosition=7;dbFieldType=decimal"
+  }, {
+    "name" : "new_order_discount",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_order_discount;dbFieldPosition=8;dbFieldType=decimal"
+  }, {
+    "name" : "new_order_gross",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_order_gross;dbFieldPosition=9;dbFieldType=decimal"
+  }, {
+    "name" : "new_shipping_charges",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_shipping_charges;dbFieldPosition=10;dbFieldType=decimal"
+  }, {
+    "name" : "new_user_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_user_id;dbFieldPosition=11;dbFieldType=int"
+  }, {
+    "name" : "new_coupon_code",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_coupon_code;dbFieldPosition=12;dbFieldType=varchar"
+  }, {
+    "name" : "new_is_coupon_applied",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_is_coupon_applied;dbFieldPosition=13;dbFieldType=tinyint"
+  }, {
+    "name" : "new_recipient_name",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_recipient_name;dbFieldPosition=14;dbFieldType=varchar"
+  }, {
+    "name" : "new_recipient_email",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_recipient_email;dbFieldPosition=15;dbFieldType=varchar"
+  }, {
+    "name" : "new_address",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_address;dbFieldPosition=16;dbFieldType=varchar"
+  }, {
+    "name" : "new_landmark",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_landmark;dbFieldPosition=17;dbFieldType=varchar"
+  }, {
+    "name" : "new_pincode",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_pincode;dbFieldPosition=18;dbFieldType=varchar"
+  }, {
+    "name" : "new_city",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_city;dbFieldPosition=19;dbFieldType=varchar"
+  }, {
+    "name" : "new_state",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_state;dbFieldPosition=20;dbFieldType=varchar"
+  }, {
+    "name" : "new_contact_no",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_contact_no;dbFieldPosition=21;dbFieldType=varchar"
+  }, {
+    "name" : "new_is_cod",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_is_cod;dbFieldPosition=22;dbFieldType=tinyint"
+  }, {
+    "name" : "new_payment_failed",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_payment_failed;dbFieldPosition=23;dbFieldType=tinyint"
+  }, {
+    "name" : "new_payment_response",
+    "type" : [ "bytes", "null" ],
+    "meta" : "dbFieldName=new_payment_response;dbFieldPosition=24;dbFieldType=longtext"
+  }, {
+    "name" : "new_payment_status",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_payment_status;dbFieldPosition=25;dbFieldType=varchar"
+  }, {
+    "name" : "new_customer_order_status",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_customer_order_status;dbFieldPosition=26;dbFieldType=varchar"
+  }, {
+    "name" : "new_customer_order_status_last_updated",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=new_customer_order_status_last_updated;dbFieldPosition=27;dbFieldType=datetime"
+  }, {
+    "name" : "new_is_confirmed",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_is_confirmed;dbFieldPosition=28;dbFieldType=tinyint"
+  }, {
+    "name" : "new_region_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_region_id;dbFieldPosition=29;dbFieldType=int"
+  }, {
+    "name" : "new_pg",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_pg;dbFieldPosition=30;dbFieldType=varchar"
+  }, {
+    "name" : "new_promo_wallet_deduction",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_promo_wallet_deduction;dbFieldPosition=31;dbFieldType=decimal"
+  }, {
+    "name" : "new_wallet_deduction",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_wallet_deduction;dbFieldPosition=32;dbFieldType=decimal"
+  }, {
+    "name" : "new_comment",
+    "type" : [ "bytes", "null" ],
+    "meta" : "dbFieldName=new_comment;dbFieldPosition=33;dbFieldType=longtext"
+  }, {
+    "name" : "new_payment_mode_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_payment_mode_id;dbFieldPosition=34;dbFieldType=int"
+  }, {
+    "name" : "new_android_id",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_android_id;dbFieldPosition=35;dbFieldType=varchar"
+  }, {
+    "name" : "new_is_manual_intervention_required",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_is_manual_intervention_required;dbFieldPosition=36;dbFieldType=int"
+  }, {
+    "name" : "new_device_id",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_device_id;dbFieldPosition=37;dbFieldType=varchar"
+  }, {
+    "name" : "new_ip",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_ip;dbFieldPosition=38;dbFieldType=varchar"
+  }, {
+    "name" : "new_source",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_source;dbFieldPosition=39;dbFieldType=varchar"
+  }, {
+    "name" : "new_amount_to_be_paid",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_amount_to_be_paid;dbFieldPosition=40;dbFieldType=decimal"
+  }, {
+    "name" : "new_cod_amount",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_cod_amount;dbFieldPosition=41;dbFieldType=decimal"
+  }, {
+    "name" : "new_order_type",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=new_order_type;dbFieldPosition=42;dbFieldType=smallint"
+  }, {
+    "name" : "new_lat",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_lat;dbFieldPosition=43;dbFieldType=decimal"
+  }, {
+    "name" : "new_lng",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=new_lng;dbFieldPosition=44;dbFieldType=decimal"
+  }, {
+    "name" : "old_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_id;dbFieldPosition=45;dbFieldType=int"
+  }, {
+    "name" : "old_created_at",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=old_created_at;dbFieldPosition=46;dbFieldType=datetime"
+  }, {
+    "name" : "old_modified_at",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=old_modified_at;dbFieldPosition=47;dbFieldType=datetime"
+  }, {
+    "name" : "old_is_ack",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_is_ack;dbFieldPosition=48;dbFieldType=tinyint"
+  }, {
+    "name" : "old_order_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_order_id;dbFieldPosition=49;dbFieldType=int"
+  }, {
+    "name" : "old_item_count",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_item_count;dbFieldPosition=50;dbFieldType=int"
+  }, {
+    "name" : "old_item_quantity",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_item_quantity;dbFieldPosition=51;dbFieldType=int"
+  }, {
+    "name" : "old_order_total",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_order_total;dbFieldPosition=52;dbFieldType=decimal"
+  }, {
+    "name" : "old_order_discount",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_order_discount;dbFieldPosition=53;dbFieldType=decimal"
+  }, {
+    "name" : "old_order_gross",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_order_gross;dbFieldPosition=54;dbFieldType=decimal"
+  }, {
+    "name" : "old_shipping_charges",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_shipping_charges;dbFieldPosition=55;dbFieldType=decimal"
+  }, {
+    "name" : "old_user_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_user_id;dbFieldPosition=56;dbFieldType=int"
+  }, {
+    "name" : "old_coupon_code",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_coupon_code;dbFieldPosition=57;dbFieldType=varchar"
+  }, {
+    "name" : "old_is_coupon_applied",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_is_coupon_applied;dbFieldPosition=58;dbFieldType=tinyint"
+  }, {
+    "name" : "old_recipient_name",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_recipient_name;dbFieldPosition=59;dbFieldType=varchar"
+  }, {
+    "name" : "old_recipient_email",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_recipient_email;dbFieldPosition=60;dbFieldType=varchar"
+  }, {
+    "name" : "old_address",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_address;dbFieldPosition=61;dbFieldType=varchar"
+  }, {
+    "name" : "old_landmark",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_landmark;dbFieldPosition=62;dbFieldType=varchar"
+  }, {
+    "name" : "old_pincode",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_pincode;dbFieldPosition=63;dbFieldType=varchar"
+  }, {
+    "name" : "old_city",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_city;dbFieldPosition=64;dbFieldType=varchar"
+  }, {
+    "name" : "old_state",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_state;dbFieldPosition=65;dbFieldType=varchar"
+  }, {
+    "name" : "old_contact_no",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_contact_no;dbFieldPosition=66;dbFieldType=varchar"
+  }, {
+    "name" : "old_is_cod",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_is_cod;dbFieldPosition=67;dbFieldType=tinyint"
+  }, {
+    "name" : "old_payment_failed",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_payment_failed;dbFieldPosition=68;dbFieldType=tinyint"
+  }, {
+    "name" : "old_payment_response",
+    "type" : [ "bytes", "null" ],
+    "meta" : "dbFieldName=old_payment_response;dbFieldPosition=69;dbFieldType=longtext"
+  }, {
+    "name" : "old_payment_status",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_payment_status;dbFieldPosition=70;dbFieldType=varchar"
+  }, {
+    "name" : "old_customer_order_status",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_customer_order_status;dbFieldPosition=71;dbFieldType=varchar"
+  }, {
+    "name" : "old_customer_order_status_last_updated",
+    "type" : [ "long", "null" ],
+    "meta" : "dbFieldName=old_customer_order_status_last_updated;dbFieldPosition=72;dbFieldType=datetime"
+  }, {
+    "name" : "old_is_confirmed",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_is_confirmed;dbFieldPosition=73;dbFieldType=tinyint"
+  }, {
+    "name" : "old_region_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_region_id;dbFieldPosition=74;dbFieldType=int"
+  }, {
+    "name" : "old_pg",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_pg;dbFieldPosition=75;dbFieldType=varchar"
+  }, {
+    "name" : "old_promo_wallet_deduction",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_promo_wallet_deduction;dbFieldPosition=76;dbFieldType=decimal"
+  }, {
+    "name" : "old_wallet_deduction",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_wallet_deduction;dbFieldPosition=77;dbFieldType=decimal"
+  }, {
+    "name" : "old_comment",
+    "type" : [ "bytes", "null" ],
+    "meta" : "dbFieldName=old_comment;dbFieldPosition=78;dbFieldType=longtext"
+  }, {
+    "name" : "old_payment_mode_id",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_payment_mode_id;dbFieldPosition=79;dbFieldType=int"
+  }, {
+    "name" : "old_android_id",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_android_id;dbFieldPosition=80;dbFieldType=varchar"
+  }, {
+    "name" : "old_is_manual_intervention_required",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_is_manual_intervention_required;dbFieldPosition=81;dbFieldType=int"
+  }, {
+    "name" : "old_device_id",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_device_id;dbFieldPosition=82;dbFieldType=varchar"
+  }, {
+    "name" : "old_ip",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_ip;dbFieldPosition=83;dbFieldType=varchar"
+  }, {
+    "name" : "old_source",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_source;dbFieldPosition=84;dbFieldType=varchar"
+  }, {
+    "name" : "old_amount_to_be_paid",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_amount_to_be_paid;dbFieldPosition=85;dbFieldType=decimal"
+  }, {
+    "name" : "old_cod_amount",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_cod_amount;dbFieldPosition=86;dbFieldType=decimal"
+  }, {
+    "name" : "old_order_type",
+    "type" : [ "int", "null" ],
+    "meta" : "dbFieldName=old_order_type;dbFieldPosition=87;dbFieldType=smallint"
+  }, {
+    "name" : "old_lat",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_lat;dbFieldPosition=88;dbFieldType=decimal"
+  }, {
+    "name" : "old_lng",
+    "type" : [ "string", "null" ],
+    "meta" : "dbFieldName=old_lng;dbFieldPosition=89;dbFieldType=decimal"
+  } ]
+}

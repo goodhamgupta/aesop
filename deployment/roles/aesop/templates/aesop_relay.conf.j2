@@ -1,0 +1,43 @@
+description "Aesop server"
+author      "Aesop User"
+
+console none
+
+start on filesystem or runlevel [2345]
+stop on runlevel [06]
+
+respawn
+#respawn limit 2 5
+
+script
+
+    echo "starting aesop"
+    echo $$ >> /var/log/aesop_relay_upstart.log
+    chdir /srv/aesop_zopper/samples/sample-mysql-relay/distribution
+    exec sh /srv/aesop_zopper/samples/sample-mysql-relay/distribution/start.sh
+
+end script
+
+pre-start script
+    echo "[`date`] aesop Starting" >> /var/log/aesop_relay_upstart.log
+end script
+
+pre-stop script
+    echo "[`date`] aesop Stopping" >> /var/log/aesop_relay_upstart.log
+end script
+
+post-stop script
+    echo "[`date`] aesop Stopped. Doing user defined cleanup of trooper processes." >> /var/log/aesop_relay_upstart.log
+    #exec ps -ef| grep org.trpr.platform >> /var/log/aesop_relay_upstart.log
+    #pkill -f isla
+    pid=`ps -ef | grep "org.trpr.platform" | grep -v grep | awk ' {print $2}'`
+    echo $pid >> /var/log/aesop_relay_upstart.log
+    if ! [ -z "$pid" ]
+    then
+        echo "Process has ended." >> /var/log/aesop_relay_upstart.log
+        `kill -9 $pid`
+        echo "$pid"  >> /var/log/aesop_relay_upstart.log
+    else
+        echo "No aesop relay process is running" >> /var/log/aesop_relay_upstart.log
+    fi
+end script
