@@ -1,76 +1,24 @@
-Aesop
-=====
-A keen observer of changes that can also relay change events reliably to interested parties. Provides useful infrastructure for 
-building Eventually Consistent data sources and systems.
-Growing list of change data source and destinations:
+# WorkInProgress
+These are the two projects( Flipkart's Aesop and Flipkart's Open Replicator) that me and my colleague were working on and we will opensource the changes once done.
 
-| Sources | Destinations | Notes |
-|:------------|:----------------|:------------|
-| MySQL            | MySQL, HBase, Elastic Search, Kafka       |   [MySQL source ](https://github.com/Flipkart/aesop/wiki/MySQL-change-event-producer)
-| HBase            | MySQL, HBase, Elastic Search, Kafka       |   [HBase source] (https://github.com/Flipkart/aesop/wiki/HBase-change-event-producer) 
-| Any Data source  | Any destination       |   [Pull Producer] (https://github.com/Flipkart/aesop/wiki/Pull-change-event-producer) 
+# Changes already done:
+# FK's Aesop:
+1. Editing Kafka data layer to insert data in JSON instead of pre-programmed AVRO schema.
+2. Getting Old and new mysql row values on upsert( update or insert).
 
-## Releases
-| Release | Date | Description |
-|:------------|:----------------|:------------|
-| Version 1.2.1-SNAPSHOT    | Aug 2015       |    Feature enhancements and bug fix release
-| Version 1.2.0             | Jul 2015       |    Bug fix release
-| Version 1.1.0             | Apr 2015       |    Feature enhancements and bug fix release
-| Version 1.1.0-SNAPSHOT    | Feb 2015       |    Second GA release
+# FK's Open replicator:
+1. Made Open replicator fault tolerant for MySQL restart events.
+2. Making sure it continues from last read MySQL bin-logs on retrying after crash instead of retrying from beginning.
 
-## Changelog
-Changelog can be viewed in CHANGELOG.md file (https://github.com/Flipkart/aesop/blob/master/CHANGELOG.md)
+The above changes were added by my colleague.
+#Deployment:
+- Ansible has been used to automate the deployment of the AESOP ecosystem to any remote servers(We've used AWS T2 Medium Instances)
+- It sets up the AESOP relay, a cluster of AESOP consumers automatically. It also configures Zookeeper and Kafka servers, both of which are cluster based to ensure high availablity and fault-tolerance. Adding servers to the cluster is as simple as adding another machine's IP address to the Ansible variables.
+- The monitor the AESOP ecosystem, we have used CheckMK to get the status of the Zookeeper and Kafka servers via JMX. It is also used to monitor the system performance such as Disk space remaining, Memory Used,etc. It has been configured to send out email alerts increase the servers pass some threshold values. Cronjobs are also setup automatically via ansible.
+- The AESOP Relay and AESOP Consumer as monitored via jmxtrans. There are custom BASH scripts to monitor the performance of the system.
+- To monitor the lag between the AESOP Relay and the AESOP Consumer, a custom python script has been written which fetches the last consumed SCN number from the Zookeeper partitions(as they are more reliable than the consumer logs) and sends out an email every hour which is configurable via crontab.
 
-## Why Aesop
-Data change propagation from source to consumers is a fairly common requirement in systems that automate business processes. 
-An example is inventory updates on a warehousing system reflecting on product pages of an eCommerce portal. 
-This example is an instance that requires the data updates to propagate with low latency and reliably. Few broad options exist:
-* Application publishes changes asynchronously to a queue before/after writing data to persistent store - this is usually fire-and-forget in most implementations
-and therefore unreliable.
-* Variants include those with retries, back-off and queue sidelining. Reliability can be enhanced using local transactions (not distributed) and message relaying.
-* Batch extraction(snapshots) and load every few hours - affects data freshness in the consumer systems.
-* Database supported replication - very common approach when source and consumer systems use the same data store technology(e.g. MySQL master-slave replication) 
-and share the same data model / schema.
-
-Aesop provides reliable, low-latency data change propagation for source and consumer systems that optionally use different data stores. It also supports
-snapshot based change detection. For consumers, it provides a unified interface for change data consumption that is independent of how the data change is
-sourced. More on the [Change Propagation Approach](https://github.com/Flipkart/aesop/wiki/Change-Propagation-Approach)
-
-## Aesop Consoles
-Console showing the relay and all connected consumers with SCN information per partition
-![Relays](https://github.com/Flipkart/aesop/raw/master/docs/Aesop_Relay_Dashboard_Relays.png)
-
-Live metrics on producer,consumers progress highlighting best and worst performing partition per consumer against producer SCN
-![Relay Metrics](https://github.com/Flipkart/aesop/raw/master/docs/Aesop_Relay_Dashboard_Metrics.png)
-
-## Getting Started
-The [Getting Started](https://github.com/Flipkart/aesop/wiki/Getting-started-and-Examples) page has "5 minute" examples to help you start using Aesop.
-
-## Documentation and Examples
-Aesop project modules that start with "sample" - for e.g. sample-memory-relay, sample-client are example implementations. Documentation is 
-continuously being added to the Wiki page of Aesop (https://github.com/Flipkart/aesop/wiki)
-
-## Getting help
-For discussion, help regarding usage, or receiving important announcements, subscribe to the Aesop users mailing list: http://groups.google.com/group/aesop-users
-
-## License
-Aesop is licensed under : The Apache Software License, Version 2.0. Here is a copy of the license (http://www.apache.org/licenses/LICENSE-2.0.txt)
-
-## Core contributors
-* Chandan Bansal ([@chandanbansal](https://github.com/chandanbansal))
-* Jagadeesh Huliyar ([@jagadeesh-huliyar](https://github.com/jagadeesh-huliyar))
-* Kartik B Ukhalkar ([@kartikssj](https://github.com/kartikssj))
-* Prakhar Jain ([@jprakhar77](https://github.com/jprakhar77))
-* Regunath B ([@regunathb](http://twitter.com/RegunathB))
-* Shoury ([@Shoury](https://github.com/Shoury))
-* Yogesh Dahiya ([@yogeshdfk](https://github.com/yogeshdfk))
-* Arya Ketan ([@aryaKetan](https://github.com/aryaKetan))
-
-## Aesop users
-* Flipkart Payments : The payment processing system uses a MySQL data store for holding transactional data. This data is
-needed in de-normalized form in the reconciliation data store(MySQL again) and an archive data store (HBase). 
-Data changes need to reflect in the reconciliation and archive stores almost instantaneously. Aesop is used to do this.
-This system is in production and has processed thousands of events per second with insert rates of about 30K per second on HBase.
-* Flipkart User data : The Aesop relay is used to propagate changes on Flipkart user accounts to the central analysis data system. 
-* Flipkart User Wishlist : The Aesop relay is used to propagate changes on Flipkart user wishlists to an Elastic Search secondary index used in searches.
-
+#TODO:
+- Add Spring file config code to allow Aesop relay server to read from multiple MySQL DBs and allow aesop client servers to read from multiple relay servers. Current configuration allows single db read for relay and single relay read for client.
+- Take Flipkart's Aesop and Flipkart's Open Replicator fork merge own changes and raise request to pull the changes.
+- Add detailed steps to execute AESOP components and Ansible. Also merge the tutorial videos into this repo.
